@@ -9,4 +9,19 @@
 			userPw
 		FROM user
 	</select>
+	
+	<insert id = "insertUser">
+	INSERT INTO user
+		(userId, userName, userPw)
+	VALUES
+		(#{userId}, #{userName}, #{userPw})
+	</insert>
+	
+	<select id="selectUserId" parameterType="String" resultType="Integer">
+      SELECT COUNT(*) FROM user
+      WHERE
+          userId = #{userId}
+	</select>
+
+	
 </mapper>

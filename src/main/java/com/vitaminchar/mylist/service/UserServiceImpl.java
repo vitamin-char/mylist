@@ -15,8 +15,18 @@ public class UserServiceImpl implements UserService {
 	UserDAO userDao;
 
 	@Override
-	public List<UserVO> memberList() throws Exception {
-		return userDao.memberList();
+	public List<UserVO> userList() throws Exception {
+		return userDao.userList();
+	}
+
+	@Override
+	public void insertUser(UserVO vo) throws Exception {
+		userDao.insertUser(vo);
+	}
+
+	@Override
+	public int selectUserId(String userId) throws Exception {
+		return userDao.selectUserId(userId);
 	}
 
 }

@@ -1,7 +1,7 @@
 package com.vitaminchar.mylist.dao;
 
 import java.util.List;
-
+	
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -15,8 +15,18 @@ public class UserDAOImpl implements UserDAO {
 	SqlSession sqlSession;
 
 	@Override
-	public List<UserVO> memberList() throws Exception {
+	public List<UserVO> userList() throws Exception {
 		return sqlSession.selectList("user.userList");
+	}
+
+	@Override
+	public void insertUser(UserVO vo) throws Exception {
+		sqlSession.insert("user.insertUser",vo);
+	}
+
+	@Override
+	public int selectUserId(String userId) throws Exception {
+		return sqlSession.selectOne("user.selectUserId",userId);
 	}
 
 }
