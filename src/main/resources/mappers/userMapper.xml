@@ -22,6 +22,12 @@
       WHERE
           userId = #{userId}
 	</select>
+	
+	<select id="login" parameterType="String" resultType = "com.vitaminchar.mylist.vo.UserVO">
+      SELECT * FROM user
+      WHERE
+          userId = #{userId} and userPw = #{userPw}
+	</select>
 
 	
 </mapper>

@@ -29,4 +29,9 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.selectOne("user.selectUserId",userId);
 	}
 
+	@Override
+	public UserVO login(UserVO vo) throws Exception {
+		return sqlSession.selectOne("user.login",vo);
+	}
+
 }

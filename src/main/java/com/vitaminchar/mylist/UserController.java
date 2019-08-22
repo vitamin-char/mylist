@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.vitaminchar.mylist.service.UserService;
 import com.vitaminchar.mylist.vo.UserVO;
@@ -38,11 +39,31 @@ public class UserController {
 		return "redirect:/";
 	}
 	
+	//아이디 중복체크
 	@RequestMapping(value = "/user/checkUserID")
 	@ResponseBody 
 	public int idcheck(@RequestBody String userId) throws Exception {
 		int check = userService.selectUserId(userId);
 		return check;
+	}
+	
+	@RequestMapping(value = "/login")
+	public String login() {
+		return "login";
+	}
+	
+	@RequestMapping(value = "/loginCheck")
+	public ModelAndView loginCheck(@ModelAttribute UserVO vo) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		UserVO user = userService.login(vo);
+		if(user == null) {
+			mav.addObject("msg", "아이디와 비밀번호를 확인해주세요");
+			mav.setViewName("/login");
+		}else {
+			mav.setViewName("/home");
+		}
+         
+		return mav;
 	}
 
 }

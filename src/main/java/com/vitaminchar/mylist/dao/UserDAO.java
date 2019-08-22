@@ -12,6 +12,8 @@ public interface UserDAO {
 
 	int selectUserId(String userId) throws Exception;
 
+	UserVO login(UserVO vo) throws Exception;
+
 	
 
 }

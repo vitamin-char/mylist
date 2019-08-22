@@ -12,4 +12,6 @@ public interface UserService {
 
 	int selectUserId(String userId) throws Exception;
 
+	UserVO login(UserVO vo) throws Exception;
+
 }
