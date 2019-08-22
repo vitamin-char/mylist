@@ -10,34 +10,38 @@
 <script>var path = "${path}";</script>
 <script src="<c:url value='/resources/js/jquery-3.4.1.min.js'/>"></script>
 <script src="<c:url value='/resources/js/joinCheck.js'/>"></script>
+<link href="<c:url value='/resources/css/login.css'/>" rel="stylesheet" type = "text/css">
 </head>
 <body>
+ <div class="inner_wrap">
+ 	<h1 class="logo_title">MYLIST</h1>
+ 	<h2 class="form_title">회원가입</h2>
 	<form id="write" method="post">
-		<div class="title">*이름</div>
-		<input type="text" name="userName" id="userName" class="inpt name"
-			required="required" maxlength="16"> <br>
-
-		<div class="title">*아이디</div>
-		<input type="text" name="userId" id="userId" class="inpt id"
-			required="required" maxlength="20"> 
-			<a href="#" id="user_id_checkBtn" class="ck">중복확인</a> <br>
-		<div class="text">*아이디는 4~20자의 영문 대소문자와 숫자로만 입력하세요.</div>
-
-		<div class="title">*비밀번호</div>
-		<input type="password" name="userPw" id="userPw" class="inpt pw"
-			required="required" maxlength="20"> <br>
-		<div class="text">*패스워드는 10~20자의 영문 대소문자와 숫자, 특수문자를 혼합하여 입력하세요.</div>
-		<div class="title">*비밀번호 확인</div>
-		<input type="password" name="rePw" id="rePw" class="inpt pw"
-			required="required" maxlength="20"> <br>
+		<div class="name_wrap">
+			<input type="text" name="userName" id="userName" class="nameInpt"
+				required="required" maxlength="20" placeholder="이름">
+		</div>
+		
+		<div class="id_wrap">
+			<input type="text" name="userId" id="userId" class="idInpt"
+			required="required" maxlength="20" placeholder="아이디 (4~20자의 영문 대소문자와 숫자로만 입력)"> 
+			<div class="check_wrap">
+				<a href="#" id="user_id_checkBtn" class="ck">중복확인</a>
+			</div>
+		</div>
+			
+		<div class= "pw_wrap">
+			<input type="password" name="userPw" id="userPw" class="pwInpt"
+				required="required" maxlength="20"  placeholder="비밀번호 (영문 대소문자와 숫자, 특수문자 혼합하여 10자 이상 입력)">
+	
+			<input type="password" name="rePw" id="rePw" class="pwInpt"
+				required="required" maxlength="20"  placeholder="비밀번호 확인">
+		</div>
 		
 		<div class="btn">
-			<ul>
-				<li class="item"><a href="${path}/">취소</a></li>
-				<li class="item"><a href="#" id="signUpBtn">회원가입</a></li>
-			</ul>
+			<button id="signUpBtn">회원가입</button>
 		</div>
 	</form>
-
+ </div>
 </body>
 </html>

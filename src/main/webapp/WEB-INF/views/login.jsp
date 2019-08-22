@@ -12,14 +12,14 @@
 <body>
  <div class="inner_wrap">
  	<h1 class="logo_title">MYLIST</h1>
- 	<h2 class="login_title">로그인</h2>
+ 	<h2 class="form_title">로그인</h2>
 	<form id="loginForm" name="login" class="signUp" action="${path}/loginCheck" method="post">
 		<div class="inpt_wrap">
 		<input type="text" name="userId" id="userId" 
-		class="idinpt" required="required" placeholder="아이디"> 
+		class="idInpt" required="required" placeholder="아이디"> 
 		</div>
 		
-		<input type="password" name="userPw" id="userPw" class="pwinpt"
+		<input type="password" name="userPw" id="userPw" class="pwInpt"
 		required="required" placeholder="비밀번호">
 		
 		<input type="submit" value="로그인" id="btnLogin" class="submit">
