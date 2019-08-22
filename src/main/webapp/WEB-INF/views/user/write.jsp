@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -29,7 +29,7 @@
 		} else {
 			$.ajax({
 				type : "POST",
-				url : "${contextPath}/user/checkUserID",
+				url : "${path}/user/checkUserID",
 				data: userId,
 				contentType : "application/json; charset=UTF-8",
 				success : function(result) {
@@ -93,7 +93,7 @@
 			alert("아이디 중복체크를 해주세요.");
 		} 
 		else {
-			$("#write").attr("action", "${contextPath}/user/insert");
+			$("#write").attr("action", "${path}/user/insert");
 			$("#write").submit();
 		}
 	}
@@ -130,7 +130,7 @@
 		
 		<div class="btn">
 			<ul>
-				<li class="item"><a href="/">취소</a></li>
+				<li class="item"><a href="${path}/">취소</a></li>
 				<li class="item"><a href="#" id="signUpBtn">회원가입</a></li>
 			</ul>
 		</div>
