@@ -3,6 +3,7 @@ package com.vitaminchar.mylist;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,7 +37,7 @@ public class UserController {
 	@RequestMapping(value = "/user/insert")
 	public String insert(@ModelAttribute UserVO vo) throws Exception{
 		userService.insertUser(vo);
-		return "redirect:/";
+		return "redirect:/login";
 	}
 	
 	//아이디 중복체크
@@ -53,17 +54,24 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/loginCheck")
-	public ModelAndView loginCheck(@ModelAttribute UserVO vo) throws Exception {
+	public ModelAndView loginCheck(@ModelAttribute UserVO vo, HttpSession session) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		UserVO user = userService.login(vo);
 		if(user == null) {
 			mav.addObject("msg", "아이디와 비밀번호를 확인해주세요");
 			mav.setViewName("/login");
 		}else {
+			session.setAttribute("login", vo); 
 			mav.setViewName("/home");
 		}
          
 		return mav;
+	}
+	
+	@RequestMapping(value = "/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/";
 	}
 
 }
