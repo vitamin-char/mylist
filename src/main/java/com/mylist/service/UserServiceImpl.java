@@ -1,4 +1,4 @@
-package com.vitaminchar.mylist.service;
+package com.mylist.service;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import com.vitaminchar.mylist.dao.UserDAO;
-import com.vitaminchar.mylist.vo.UserVO;
+import com.mylist.dao.UserDAO;
+import com.mylist.vo.UserVO;
 
 @Service
 public class UserServiceImpl implements UserService {

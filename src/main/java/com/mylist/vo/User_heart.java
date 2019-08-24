@@ -1,4 +1,4 @@
-package com.vitaminchar.mylist.vo;
+package com.mylist.vo;
 
 public class User_heart {
 	private int IDX;

@@ -1,8 +1,8 @@
-package com.vitaminchar.mylist.dao;
+package com.mylist.dao;
 
 import java.util.List;
 
-import com.vitaminchar.mylist.vo.UserVO;
+import com.mylist.vo.UserVO;
 
 public interface UserDAO {
 

@@ -1,4 +1,4 @@
-package com.vitaminchar.mylist;
+package com.mylist.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class HomeController {
-	
-
 	//메인
 	@RequestMapping(value = "/")
 	public String home() {

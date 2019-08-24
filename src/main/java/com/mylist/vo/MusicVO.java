@@ -1,4 +1,4 @@
-package com.vitaminchar.mylist.vo;
+package com.mylist.vo;
 
 public class MusicVO {
 	private int IDX;

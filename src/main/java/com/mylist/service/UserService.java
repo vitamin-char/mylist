@@ -1,8 +1,8 @@
-package com.vitaminchar.mylist.service;
+package com.mylist.service;
 
 import java.util.List;
 
-import com.vitaminchar.mylist.vo.UserVO;
+import com.mylist.vo.UserVO;
 
 public interface UserService {
 

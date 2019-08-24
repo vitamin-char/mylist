@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 다른 Mapper와 중복되지 않도록 네임스페이스 기재 -->
 <mapper namespace="user">
-	<select id = "userList" resultType = "com.vitaminchar.mylist.vo.UserVO">
+	<select id = "userList" resultType = "com.mylist.vo.UserVO">
 		SELECT
 			userId,
 			userName,
@@ -23,7 +23,7 @@
           userId = #{userId}
 	</select>
 	
-	<select id="login" parameterType="String" resultType = "com.vitaminchar.mylist.vo.UserVO">
+	<select id="login" parameterType="String" resultType = "com.mylist.vo.UserVO">
       SELECT * FROM user
       WHERE
           userId = #{userId} and userPw = #{userPw}

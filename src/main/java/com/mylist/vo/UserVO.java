@@ -1,4 +1,4 @@
-package com.vitaminchar.mylist.vo;
+package com.mylist.vo;
 
 public class UserVO {
 	private String userId;
