@@ -64,7 +64,7 @@ public class UserController {
 			mav.setViewName("/login");
 		}else {
 			session.setAttribute("login", vo); 
-			mav.setViewName("/home");
+			mav.setViewName("redirect:/");
 		}
          
 		return mav;
