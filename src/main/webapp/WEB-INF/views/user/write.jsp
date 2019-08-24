@@ -14,7 +14,9 @@
 </head>
 <body>
  <div class="inner_wrap">
- 	<h1 class="logo_title">MYLIST</h1>
+ 	<h1 class="logo_title">
+ 		<a href="${path}/">MYLIST</a>
+ 	</h1>
  	<h2 class="form_title">회원가입</h2>
 	<form id="write" method="post">
 		<div class="name_wrap">

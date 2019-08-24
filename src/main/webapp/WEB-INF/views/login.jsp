@@ -11,7 +11,9 @@
 </head>
 <body>
  <div class="inner_wrap">
- 	<h1 class="logo_title">MYLIST</h1>
+ 	<h1 class="logo_title">
+ 		<a href="${path}/">MYLIST</a>
+ 	</h1>
  	<h2 class="form_title">로그인</h2>
 	<form id="loginForm" name="login" class="signUp" action="${path}/loginCheck" method="post">
 		<div class="inpt_wrap">
@@ -26,7 +28,7 @@
 	</form>
 	
 	<div id="join_section">
-		회원이 아니신가요? <a class="join" href = "${path}/user/write">회원가입</a>
+		회원이 아니신가요? <a class="join" href="${path}/user/write">회원가입</a>
 	</div>
 	
 	<div id="warning">

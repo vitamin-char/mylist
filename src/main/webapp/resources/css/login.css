@@ -17,10 +17,12 @@ a {
 	text-align:center;
 }
 .logo_title{
-	color: #ff0083;
 	font-size: 46px;
 	font-weight: 900;
 	margin: 0;
+}
+.logo_title a{
+	color: #ff0083;
 }
 .idInpt, .pwInpt, .nameInpt{
 	display:block;
