@@ -31,7 +31,7 @@ public class UserController {
 	//회원가입
 	@RequestMapping(value = "/user/write")
 	public String userWrite() {
-		return "user/write";
+		return "user/joinForm";
 	}
 	
 	@RequestMapping(value = "/user/insert")
