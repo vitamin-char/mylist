@@ -12,36 +12,17 @@
 </head>
 <body>
 	<div class="content_wrap">
-        <form id="listForm">
+        <form id="listForm" action="${path}/board/insert" method="post">
             <h2>곡</h2>
             <div class="list_wrap">
-            <div class="music_wrap">
+            <div class="music_wrap" id="music_wrap">
                 <div class="name_wrap">
-                    <input type="text" name="musicName" id="musicName" class="musicInpt"
+                    <input type="text" name="music_title" id="music_title" class="musicInpt"
 				    required="required" placeholder="제목">
                 </div>
                 <div class="singer_wrap">
-                    <input type="text" name="singerName" id="singerName" class="singerInpt"
+                    <input type="text" name="music_singer" id="music_singer" class="singerInpt"
 				    required="required" placeholder="가수">
-                </div>
-            </div>
-            
-            <div id="pre_set" style="display:none">
-                <div class="music_wrap">
-                    <div class="name_wrap">
-                        <input type="text" name="musicName" id="musicName" class="musicInpt"
-				    required="required" placeholder="제목">
-                    </div>
-                    <div class="singer_wrap">
-                        <input type="text" name="singerName" id="singerName" class="singerInpt"
-				    required="required" placeholder="가수">
-                    </div>
-                    
-                    <div class="del_music">
-                        <button class="del_btn" type="button" onclick="remove_item(this)">
-                            <img src="<c:url value='/resources/img/x-mark.png'/>" class="del_img">
-                        </button>
-                    </div>
                 </div>
             </div>
             
@@ -53,6 +34,7 @@
                 </button>
             </div>
             </div>
+            
             <h2>설명</h2>
             <div class="description_wrap">
                 <textarea name="description" id="description" class="description" rows="4"
