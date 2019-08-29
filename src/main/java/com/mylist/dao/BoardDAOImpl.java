@@ -1,5 +1,6 @@
 package com.mylist.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -15,6 +16,11 @@ public class BoardDAOImpl implements BoardDAO {
 	SqlSession sqlSession;
 
 	@Override
+	public List<BoardVO> boardList() throws Exception {
+		return  sqlSession.selectList("board.boardList");
+	}
+	
+	@Override
 	public void boardInsert(BoardVO board) throws Exception {
 		sqlSession.insert("board.boardInsert",board);
 	}
@@ -29,5 +35,6 @@ public class BoardDAOImpl implements BoardDAO {
 		sqlSession.insert("board.musicInsert",map);
 		
 	}
+
 
 }

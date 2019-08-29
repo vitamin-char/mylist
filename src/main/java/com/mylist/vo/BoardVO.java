@@ -1,6 +1,7 @@
 package com.mylist.vo;
 
 import java.util.Date;
+import java.util.List;
 
 public class BoardVO {
 	private int boardId;
@@ -10,6 +11,7 @@ public class BoardVO {
 	private Date board_date;
 	private String[] music_title;
 	private String[] music_singer;
+	private List<MusicVO> music;
 	
 	public int getBoardId() {
 		return boardId;
@@ -53,6 +55,12 @@ public class BoardVO {
 	}
 	public void setMusic_singer(String[] music_singer) {
 		this.music_singer = music_singer;
+	}
+	public List<MusicVO> getMusic() {
+		return music;
+	}
+	public void setMusic(List<MusicVO> music) {
+		this.music = music;
 	}
 
 

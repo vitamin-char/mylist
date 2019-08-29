@@ -1,6 +1,7 @@
 package com.mylist.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -16,6 +17,11 @@ import com.mylist.vo.BoardVO;
 public class BoardServiceImpl implements BoardService {
 	@Inject
 	BoardDAO boardDAO;
+	
+	@Override
+	public List<BoardVO> boardList() throws Exception {
+		return boardDAO.boardList();
+	}
 
 	@Override
 	public void boardInsert(BoardVO board) throws Exception {
@@ -45,5 +51,7 @@ public class BoardServiceImpl implements BoardService {
 			
 		}
 	}
+
+	
 
 }

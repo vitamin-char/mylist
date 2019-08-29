@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board">
+
+	<resultMap id="boradResult" type="com.mylist.vo.BoardVO">
+    <result property="boardId" column="boardId"/>
+    <result property="userId" column="userId"/>
+    <result property="discription" column="discription"/>
+    <result property="board_cnt" column="board_cnt"/>
+    <result property="board_date" column="board_date"/>
+    <collection property="music" column="boardId" javaType="java.util.ArrayList" 
+    ofType="com.mylist.vo.MusicVO" select="musicList"/>
+	</resultMap>
+
+	<select id = "boardList" resultMap = "boradResult">
+		SELECT * FROM board
+	</select>
+	
+	<select id = "musicList" resultType = "com.mylist.vo.MusicVO">
+		SELECT * FROM music 
+		WHERE boardId = #{boardId}
+	</select>
+	
 	<insert id = "boardInsert" useGeneratedKeys="true" keyProperty="boardId">
 	INSERT INTO board
 		(userId, description, board_date)

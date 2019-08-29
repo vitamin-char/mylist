@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+.content_wrap{
+    width: 90%;
+    padding: 54px 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+.upload_btn_wrap{
+    position: absolute;
+    right: 24px;
+    bottom: 30px;
+    display: flex;
+}
+.add_img{
+    width:56px;
+    height: 56px;
+}
+.list_wrap{
+    float: left;
+    background-color: #FFFFFF;
+	width: 256px;
+	height: 340px;
+	margin: 20px 15px;;
+	padding: 7px 0;
+	border-radius: 6px;
+    border: 1px solid #e6e6e6;
+}
+.music_wrap{
+    padding : 5px 8px;
+    border-bottom: 1px solid #e8ebed;
+    
+}
+.title_wrap{
+    font-size: 20px;
+    font-weight: 700;
+    color: #ff0083;
+    letter-spacing: 0.2px;
+}
+.singer_wrap{
+    font-size: 14px;
+    font-weight: 600;
+    color: #454545;
+    letter-spacing: -0.5px;
+}
+.information_wrap{
+    padding: 10px 8px 0;
+}
+#like_img{
+    width: 27px;
+}
+.cnt_wrap{
+    font-size: 14px;
+    font-weight: 500;
+    color: #454545;
+    letter-spacing: -0.5px;
+}
+.name_wrap{
+    font-size: 18px;
+    font-weight: 600;
+    color: #373737;
+    letter-spacing: -0.5px;
+}
+.description_wrap{
+    font-size: 15px;
+    font-weight: 400;
+    color: #454545;
+    letter-spacing: -0.5px;
+    margin-left: 3px;
+}

@@ -2,7 +2,7 @@ package com.mylist.vo;
 
 public class MusicVO {
 	private int IDX;
-	private String boardId;
+	private int boardId;
 	private String music_title;
 	private String music_singer;
 	
@@ -12,10 +12,10 @@ public class MusicVO {
 	public void setIDX(int iDX) {
 		IDX = iDX;
 	}
-	public String getBoardId() {
+	public int getBoardId() {
 		return boardId;
 	}
-	public void setBoardId(String boardId) {
+	public void setBoardId(int boardId) {
 		this.boardId = boardId;
 	}
 	public String getMusic_title() {
