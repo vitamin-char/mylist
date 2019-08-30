@@ -12,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mylist.service.BoardService;
 import com.mylist.vo.BoardVO;
-import com.mylist.vo.MusicVO;
 import com.mylist.vo.UserVO;
 
 

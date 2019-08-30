@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.mylist.vo.BoardVO;
+import com.mylist.vo.MusicVO;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO {
@@ -31,8 +32,8 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public void musicInsert(Map<String, Object> map) throws Exception {
-		sqlSession.insert("board.musicInsert",map);
+	public void musicInsert(MusicVO musicVO) throws Exception {
+		sqlSession.insert("board.musicInsert",musicVO);
 		
 	}
 

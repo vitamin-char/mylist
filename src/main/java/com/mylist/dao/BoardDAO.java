@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.mylist.vo.BoardVO;
+import com.mylist.vo.MusicVO;
 
 public interface BoardDAO {
 	
@@ -13,7 +14,7 @@ public interface BoardDAO {
 
 	void tagInsert(Map<String, Object> map) throws Exception;
 
-	void musicInsert(Map<String, Object> map) throws Exception;
+	void musicInsert(MusicVO musicVO) throws Exception;
 
 	
 

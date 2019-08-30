@@ -42,12 +42,9 @@ public class BoardServiceImpl implements BoardService {
 		}
 		
 		
-		for(int i=0; i<board.getMusic_title().length; i++) {
-			map = new HashMap<String,Object>();
-			map.put("boardId", board.getBoardId());
-			map.put("music_title", board.getMusic_title()[i]);
-			map.put("music_singer", board.getMusic_singer()[i]);
-			boardDAO.musicInsert(map);
+		for(int i=0; i<board.getMusic().size(); i++) {
+			board.getMusic().get(i).setBoardId(board.getBoardId());
+			boardDAO.musicInsert(board.getMusic().get(i));
 			
 		}
 	}
