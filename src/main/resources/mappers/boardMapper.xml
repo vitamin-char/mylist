@@ -3,15 +3,15 @@
 <mapper namespace="board">
 
 	<resultMap id="boradResult" type="com.mylist.vo.BoardVO">
-    <result property="boardId" column="boardId"/>
-    <result property="userId" column="userId"/>
-    <result property="discription" column="discription"/>
-    <result property="board_cnt" column="board_cnt"/>
-    <result property="board_date" column="board_date"/>
-    <collection property="music" column="boardId" javaType="java.util.ArrayList" 
-    ofType="com.mylist.vo.MusicVO" select="musicList"/>
+	    <result property="boardId" column="boardId"/>
+	    <result property="userId" column="userId"/>
+	    <result property="discription" column="discription"/>
+	    <result property="board_cnt" column="board_cnt"/>
+	    <result property="board_date" column="board_date"/>
+	    <collection property="music" column="boardId" javaType="java.util.ArrayList" 
+	    ofType="com.mylist.vo.MusicVO" select="musicList"/>
 	</resultMap>
-
+	
 	<select id = "boardList" resultMap = "boradResult">
 		SELECT * FROM board
 	</select>
@@ -22,24 +22,54 @@
 	</select>
 	
 	<insert id = "boardInsert" useGeneratedKeys="true" keyProperty="boardId">
-	INSERT INTO board
-		(userId, description, board_date)
-	VALUES
-		(#{userId}, #{description}, NOW())
+		INSERT INTO board
+			(userId, description, board_date)
+		VALUES
+			(#{userId}, #{description}, NOW())
 	</insert>
 	
 	<insert id = "tagInsert">
-	INSERT INTO board_tag
-		(boardId, tag_name)
-	VALUES
-		(#{boardId}, #{tag_name})
+		INSERT INTO board_tag
+			(boardId, tag_name)
+		VALUES
+			(#{boardId}, #{tag_name})
 	</insert>
 	
 	<insert id = "musicInsert">
-	INSERT INTO music
-		(boardId, music_title, music_singer)
-	VALUES
-		(#{boardId}, #{music_title}, #{music_singer})
+		INSERT INTO music
+			(boardId, music_title, music_singer)
+		VALUES
+			(#{boardId}, #{music_title}, #{music_singer})
 	</insert>
-
+	
+	<select id = "checkLike" resultType="int">
+		SELECT count(*) FROM user_heart
+		WHERE userId = #{userId} and boardId = #{boardId}
+	</select>
+	
+	<insert id = "like">
+		INSERT INTO user_heart
+			(userId, boardId)
+		VALUES
+			(#{userId}, #{boardId})
+	</insert>
+	
+	<delete id="dislike">
+		DELETE FROM user_heart
+		WHERE userId = #{userId} and boardId = #{boardId}
+	</delete>
+	
+	<update id="updateLike">
+		UPDATE board
+            SET
+            board_cnt = (SELECT COUNT(*)
+            FROM user_heart
+            WHERE boardId = #{boardId})
+            WHERE boardId = #{boardId}
+	</update>
+	
+	<select id="selectCnt" parameterType="String" resultType="Integer">
+      SELECT board_cnt FROM board
+      WHERE boardId = #{boardId}
+	</select>
 </mapper>
