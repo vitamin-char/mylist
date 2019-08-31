@@ -9,9 +9,8 @@ public class BoardVO {
 	private int board_cnt;
 	private String description;
 	private Date board_date;
-	private String[] music_title;
-	private String[] music_singer;
 	private List<MusicVO> music;
+	private int like_plag;
 	
 	public int getBoardId() {
 		return boardId;
@@ -44,23 +43,17 @@ public class BoardVO {
 	public void setBoard_date(Date board_date) {
 		this.board_date = board_date;
 	}
-	public String[] getMusic_title() {
-		return music_title;
-	}
-	public void setMusic_title(String[] music_title) {
-		this.music_title = music_title;
-	}
-	public String[] getMusic_singer() {
-		return music_singer;
-	}
-	public void setMusic_singer(String[] music_singer) {
-		this.music_singer = music_singer;
-	}
 	public List<MusicVO> getMusic() {
 		return music;
 	}
 	public void setMusic(List<MusicVO> music) {
 		this.music = music;
+	}
+	public int getLike_plag() {
+		return like_plag;
+	}
+	public void setLike_plag(int like_plag) {
+		this.like_plag = like_plag;
 	}
 
 

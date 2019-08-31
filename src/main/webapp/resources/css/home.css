@@ -46,6 +46,12 @@
 .information_wrap{
     padding: 10px 8px 0;
 }
+.like_btn{
+    cursor: pointer;
+    border: none;
+    background: #fff;
+    outline: none;
+}
 #like_img{
     width: 27px;
 }

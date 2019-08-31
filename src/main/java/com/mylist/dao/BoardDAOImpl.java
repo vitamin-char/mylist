@@ -36,6 +36,30 @@ public class BoardDAOImpl implements BoardDAO {
 		sqlSession.insert("board.musicInsert",musicVO);
 		
 	}
+	
+	@Override
+	public int checkLike(Map<String, Object> map) throws Exception {
+		return sqlSession.selectOne("board.checkLike", map);
+	}
+	
+	@Override
+	public void like(Map<String, Object> map) throws Exception {
+		sqlSession.insert("board.like",map);
+	}
+	
+	@Override
+	public void dislike(Map<String, Object> map) throws Exception {
+		sqlSession.delete("board.dislike",map);
+	}
+	
+	@Override
+	public void updateLike(String boardId) throws Exception {
+		sqlSession.update("board.updateLike",boardId);
+	}
 
+	@Override
+	public int selectCnt(String boardId) throws Exception {
+		return sqlSession.selectOne("board.selectCnt",boardId);
+	}
 
 }

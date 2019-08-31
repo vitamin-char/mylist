@@ -1,12 +1,8 @@
 package com.mylist.dao;
 
-import java.util.List;
-
 import com.mylist.vo.UserVO;
 
 public interface UserDAO {
-
-	List<UserVO> userList() throws Exception;
 	
 	void insertUser(UserVO vo) throws Exception;
 
@@ -14,6 +10,6 @@ public interface UserDAO {
 
 	UserVO login(UserVO vo) throws Exception;
 
-	
+	UserVO getUser(String userId) throws Exception;
 
 }

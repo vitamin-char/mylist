@@ -7,11 +7,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 
 import com.mylist.dao.BoardDAO;
 import com.mylist.vo.BoardVO;
+import com.mylist.vo.UserVO;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -19,8 +21,29 @@ public class BoardServiceImpl implements BoardService {
 	BoardDAO boardDAO;
 	
 	@Override
-	public List<BoardVO> boardList() throws Exception {
-		return boardDAO.boardList();
+	public List<BoardVO> boardList(HttpSession session) throws Exception {
+		UserVO user = (UserVO) session.getAttribute("login");
+		if(user == null) {
+			return boardDAO.boardList();
+		}
+		
+		List<BoardVO> boardList = boardDAO.boardList();
+		BoardVO board;
+		Map<String,Object> map;
+		
+		
+		for(int i=0; i<boardList.size(); i++) {
+			board = boardList.get(i);
+			
+			map = new HashMap<String,Object>();
+			map.put("userId", user.getUserId());
+			map.put("boardId", board.getBoardId());
+			
+			int plag= boardDAO.checkLike(map);
+			board.setLike_plag(plag);
+		}
+		
+		return boardList;
 	}
 
 	@Override
@@ -50,5 +73,36 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	
+	@Override
+	public int like(String boardId, HttpSession session) throws Exception {
+		UserVO user = (UserVO) session.getAttribute("login");
+		
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("userId", user.getUserId());
+		map.put("boardId", boardId);
+		
+		boardDAO.like(map);
+		boardDAO.updateLike(boardId);
+		
+		return boardDAO.selectCnt(boardId);
+	}
+
+	@Override
+	public int dislike(String boardId, HttpSession session) throws Exception {
+		UserVO user = (UserVO) session.getAttribute("login");
+		
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("userId", user.getUserId());
+		map.put("boardId", boardId);
+		
+		boardDAO.dislike(map);
+		
+		boardDAO.updateLike(boardId);
+		
+		return boardDAO.selectCnt(boardId);
+	}
+
+	
+
 
 }

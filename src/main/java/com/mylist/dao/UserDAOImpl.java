@@ -1,6 +1,4 @@
 package com.mylist.dao;
-
-import java.util.List;
 	
 import javax.inject.Inject;
 
@@ -15,11 +13,6 @@ public class UserDAOImpl implements UserDAO {
 	SqlSession sqlSession;
 
 	@Override
-	public List<UserVO> userList() throws Exception {
-		return sqlSession.selectList("user.userList");
-	}
-
-	@Override
 	public void insertUser(UserVO vo) throws Exception {
 		sqlSession.insert("user.insertUser",vo);
 	}
@@ -32,6 +25,11 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public UserVO login(UserVO vo) throws Exception {
 		return sqlSession.selectOne("user.login",vo);
+	}
+
+	@Override
+	public UserVO getUser(String userId) throws Exception {
+		return sqlSession.selectOne("user.getUser",userId);
 	}
 
 }

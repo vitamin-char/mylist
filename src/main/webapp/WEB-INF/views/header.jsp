@@ -3,7 +3,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
-<%UserVO login = (UserVO)session.getAttribute("login"); %>
+<%UserVO login = (UserVO)session.getAttribute("login");
+%>
+<c:set var="user" value="${login}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,7 +34,7 @@
 				</ul>
 			<%}else{ %>
 				<ul class="sign">
-					<li><a href = "${path}/user/mypage">마이페이지</a></li>
+					<li><a href = "${path}/userPage?userId=<%=login.getUserId()%>">마이페이지</a></li>
 					<li><a href = "${path}/logout">로그아웃</a></li>
 				</ul>
 			<%} %>
