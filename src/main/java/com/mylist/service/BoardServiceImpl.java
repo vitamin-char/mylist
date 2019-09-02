@@ -102,6 +102,16 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.selectCnt(boardId);
 	}
 
+	@Override
+	public List<BoardVO> writeList(String userId) throws Exception {
+		return boardDAO.writeList(userId);
+	}
+
+	@Override
+	public List<BoardVO> likeList(String userId) throws Exception {
+		return boardDAO.likeList(userId);
+	}
+
 	
 
 

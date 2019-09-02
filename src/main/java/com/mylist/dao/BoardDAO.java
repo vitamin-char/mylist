@@ -26,4 +26,8 @@ public interface BoardDAO {
 
 	int selectCnt(String boardId) throws Exception;
 
+	List<BoardVO> writeList(String userId) throws Exception;
+
+	List<BoardVO> likeList(String userId) throws Exception;
+
 }

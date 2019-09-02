@@ -62,4 +62,14 @@ public class BoardDAOImpl implements BoardDAO {
 		return sqlSession.selectOne("board.selectCnt",boardId);
 	}
 
+	@Override
+	public List<BoardVO> writeList(String userId) throws Exception {
+		return  sqlSession.selectList("board.writeList",userId);
+	}
+
+	@Override
+	public List<BoardVO> likeList(String userId) throws Exception {
+		return  sqlSession.selectList("board.likeList",userId);
+	}
+
 }

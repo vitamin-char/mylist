@@ -1,32 +1,30 @@
 package com.mylist.controller;
 
+
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mylist.service.BoardService;
 import com.mylist.service.UserService;
+import com.mylist.vo.BoardVO;
 import com.mylist.vo.UserVO;
 
 @Controller
 public class UserController {
 	@Inject
 	UserService userService;
-	
-	@RequestMapping("/user/list")
-	public String userList(Model model) throws Exception {
-		List<UserVO> list = userService.userList();
-		model.addAttribute("list", list);
-		return "user/user_list";
-	}
+	@Inject
+	BoardService boardService;
 	
 	//회원가입
 	@RequestMapping(value = "/user/write")
@@ -74,6 +72,29 @@ public class UserController {
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/userPage")
+	public ModelAndView userPage(@RequestParam String userId, 
+			@RequestParam(defaultValue="1") String srt, HttpSession session) throws Exception {
+		ModelAndView mav = new ModelAndView("/user/userPage");
+		
+		UserVO user = userService.getUser(userId);
+		mav.addObject("User",user);
+		
+		List<BoardVO> writeList = boardService.writeList(userId);
+		mav.addObject("write_cnt",writeList.size());
+		
+		List<BoardVO> likeList = boardService.likeList(userId);
+		mav.addObject("like_cnt",likeList.size());
+		
+		if(srt.equals("1")) {
+			mav.addObject("list",writeList);
+		}else {
+			mav.addObject("list",likeList);
+		}
+		
+		return mav;
 	}
 
 }

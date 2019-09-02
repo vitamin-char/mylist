@@ -1,0 +1,48 @@
+@charset "UTF-8";
+.profile_wrap{
+    padding: 15px 77px;
+    margin-top: 20px;
+    color: white;
+}
+.profile_cover{
+    position: relative;
+    background: #ff0083;
+    background: linear-gradient(to right, #ff0083, #fc6767); 
+    width: 90%;
+    height: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 62px;
+}
+.setting_wrap{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.setting_img{
+    width:40px;
+    height: 40px;
+}
+.user_name_wrap{
+    font-size: 30px;
+	font-weight: 700;
+	line-height: 35px;
+    margin-bottom: 80px;
+}
+.activity_cout_wrap{
+    float: left;
+    margin-right: 30px;
+}
+.activity_label{
+    font-size: 16px;
+}
+.count_btn{
+    padding-top: 7px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 43px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+}

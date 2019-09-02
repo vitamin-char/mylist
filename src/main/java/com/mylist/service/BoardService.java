@@ -16,4 +16,8 @@ public interface BoardService {
 
 	int dislike(String boardId, HttpSession session) throws Exception;
 
+	List<BoardVO> writeList(String userId) throws Exception;
+
+	List<BoardVO> likeList(String userId) throws Exception;
+
 }

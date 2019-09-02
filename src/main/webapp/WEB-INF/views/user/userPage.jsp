@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file = "header.jsp" %>
+<%@ include file = "../header.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,9 +11,34 @@
 <script src="<c:url value='/resources/js/jquery-3.4.1.min.js'/>"></script>
 <script src="<c:url value='/resources/js/likeAction.js'/>"></script>
 <link href="<c:url value='/resources/css/home.css'/>" rel="stylesheet" type = "text/css">
+<link href="<c:url value='/resources/css/userPage.css'/>" rel="stylesheet" type = "text/css">
 </head>
 <body>
-	<div class="content_wrap">
+	<div class="profile_wrap">
+        <div class="profile_cover">
+        <c:if test="${user.userId != '' && user.userId eq User.userId }">
+        <div class="setting_wrap">
+            <a href="#" class="add_btn">
+           		<img src="<c:url value='/resources/img/setting.png'/>" class="setting_img">
+            </a>
+        </div>
+        </c:if>
+        <div class="user_name_wrap">
+        	${User.userName}
+        </div>
+        <div class="activity_wrap">
+            <div class="activity_cout_wrap">
+                <p class="activity_label">활동</p>
+                <a href="${path}/userPage?userId=${User.userId}" class="count_btn">${write_cnt}</a>
+            </div>
+            <div class="activity_cout_wrap">
+                <p class="activity_label">좋아요</p>
+                <a href="${path}/userPage?userId=${User.userId}&srt=2" class="count_btn">${like_cnt}</a>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="content_wrap">
 	<c:forEach items="${list}" var="row" varStatus="status">
         <div class="list_wrap">
             <a href="#" class="movoe_modal">
