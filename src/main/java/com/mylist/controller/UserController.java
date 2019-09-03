@@ -56,11 +56,10 @@ public class UserController {
 		ModelAndView mav = new ModelAndView();
 		UserVO user = userService.login(vo);
 		if(user == null) {
-			session.setAttribute("login", vo);
-			
 			mav.addObject("msg", "아이디와 비밀번호를 확인해주세요");
 			mav.setViewName("/login");
 		}else {
+			vo = userService.getUser(vo.getUserId());
 			session.setAttribute("login", vo); 
 			mav.setViewName("redirect:/");
 		}
