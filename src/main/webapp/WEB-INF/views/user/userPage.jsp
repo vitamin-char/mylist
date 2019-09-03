@@ -18,7 +18,7 @@
         <div class="profile_cover">
         <c:if test="${user.userId != '' && user.userId eq User.userId }">
         <div class="setting_wrap">
-            <a href="#" class="add_btn">
+            <a href="${path}/user/edit" class="add_btn">
            		<img src="<c:url value='/resources/img/setting.png'/>" class="setting_img">
             </a>
         </div>

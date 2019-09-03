@@ -7,20 +7,20 @@
 	</select>
 	
 	<insert id = "insertUser">
-	INSERT INTO user
-		(userId, userName, userPw)
-	VALUES
-		(#{userId}, #{userName}, #{userPw})
+		INSERT INTO user
+			(userId, userName, userPw)
+		VALUES
+			(#{userId}, #{userName}, #{userPw})
 	</insert>
 	
 	<select id="selectUserId" parameterType="String" resultType="Integer">
-      SELECT COUNT(*) FROM user
-      WHERE userId = #{userId}
+    	SELECT COUNT(*) FROM user
+    	WHERE userId = #{userId}
 	</select>
 	
 	<select id="login" parameterType="String" resultType = "com.mylist.vo.UserVO">
-      SELECT * FROM user
-      WHERE userId = #{userId} and userPw = #{userPw}
+      	SELECT * FROM user
+      	WHERE userId = #{userId} and userPw = #{userPw}
 	</select>
 
 	<select id = "getUser" resultType = "com.mylist.vo.UserVO">
@@ -28,4 +28,15 @@
 		WHERE userId = #{userId}
 	</select>
 	
+	<update id="userUpdate">
+		UPDATE user SET
+		userName = #{userName}
+		WHERE userId = #{userId}
+	</update>
+	
+	<update id="pwUpdate">
+		UPDATE user SET
+		userPw = #{newPw}
+		WHERE userId = #{userId}
+	</update>
 </mapper>

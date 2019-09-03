@@ -2,6 +2,7 @@ package com.mylist.controller;
 
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -95,5 +96,53 @@ public class UserController {
 		
 		return mav;
 	}
-
+	
+	@RequestMapping(value = "/user/edit")
+	public ModelAndView userEdit(HttpSession session) throws Exception {
+		ModelAndView mav = new ModelAndView("/user/editForm");
+		UserVO user = (UserVO) session.getAttribute("login");
+		
+		mav.addObject("user",user);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/user/update")
+	public ModelAndView userUpdate(@ModelAttribute UserVO vo, HttpSession session) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		
+		userService.userUpdate(vo);
+		session.setAttribute("login", vo);
+		
+		mav.setViewName("redirect:/user/edit");
+		
+         
+		return mav;
+	}
+	
+	@RequestMapping(value = "/user/passWord")
+	public String pwEdit() throws Exception {
+		return "user/pwForm";
+	}
+	
+	@RequestMapping(value = "/user/pwUpdate")
+	public ModelAndView pwUpdate(@RequestParam Map<String, String> map, HttpSession session) throws Exception {
+		ModelAndView mav = new ModelAndView("user/pwForm");
+		UserVO user = (UserVO) session.getAttribute("login");
+		
+		if(!map.get("userPw").equals(user.getUserPw())) {
+			mav.addObject("msg","현재 비밀번호가 잘못 입력되었습니다.");
+			return mav;			
+		}
+		
+		map.put("userId", user.getUserId());
+		
+		String str = userService.pwUpdate(map);
+		mav.addObject("warning",str);
+		session.setAttribute("warning", str);
+		
+		
+         
+		return mav;
+	}
 }

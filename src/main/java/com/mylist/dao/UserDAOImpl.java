@@ -1,5 +1,7 @@
 package com.mylist.dao;
 	
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -31,5 +33,17 @@ public class UserDAOImpl implements UserDAO {
 	public UserVO getUser(String userId) throws Exception {
 		return sqlSession.selectOne("user.getUser",userId);
 	}
+
+	@Override
+	public void userUpdate(UserVO vo) throws Exception {
+		sqlSession.update("user.userUpdate",vo);
+	}
+
+	@Override
+	public void pwUpdate(Map<String, String> map) throws Exception {
+		sqlSession.update("user.pwUpdate",map);
+	}
+
+	
 
 }
