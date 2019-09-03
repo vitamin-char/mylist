@@ -34,7 +34,7 @@
 			
 		<div class= "pw_wrap">
 			<input type="password" name="userPw" id="userPw" class="pwInpt"
-				required="required" maxlength="20"  placeholder="비밀번호 (영문 대소문자와 숫자, 특수문자 혼합하여 10자 이상 입력)">
+				required="required" maxlength="20"  placeholder="비밀번호 (영문 대소문자와 숫자, 특수문자 혼합하여 8자 이상 입력)">
 	
 			<input type="password" name="rePw" id="rePw" class="pwInpt"
 				required="required" maxlength="20"  placeholder="비밀번호 확인">

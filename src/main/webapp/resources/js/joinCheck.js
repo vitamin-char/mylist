@@ -50,7 +50,7 @@ $(document).ready(function() {
 });
 
 function fn_signUp() {
-	var reg_pw = /^.*(?=.{10,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
+	var reg_pw = /^.*(?=.{8,20})(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[~`!@#$%\\^&*()-]).*$/;
 
 	if ($("#userName").val() == 0) {
 		alert("이름을 입력해 주세요");
@@ -71,7 +71,7 @@ function fn_signUp() {
 	}
 
 	if (!check(reg_pw, $("#userPw"),
-			"패스워드는 10~20자의 영문 대소문자와 숫자, 특수문자를 혼합하여 입력하세요.")) {
+			"패스워드는 8~20자의 영문 대소문자와 숫자, 특수문자를 혼합하여 입력하세요.")) {
 		return false;
 	}
 
