@@ -72,4 +72,16 @@
       SELECT board_cnt FROM board
       WHERE boardId = #{boardId}
 	</select>
+	
+	<select id = "writeList" resultMap = "boradResult">
+		SELECT * FROM board
+		Where userId = #{userId}
+	</select>
+	
+	<select id = "likeList" resultMap = "boradResult">
+		select * from board AS b
+		Join user_heart AS H
+		ON b.boardId = H.boardId
+		where H.userId = #{userId}
+	</select>		
 </mapper>
