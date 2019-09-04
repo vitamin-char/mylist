@@ -21,7 +21,7 @@ function fn_userIDCheck() {
 	} else {
 		$.ajax({
 			type : "POST",
-			url : path+"/user/checkUserID",
+			url : path+"/checkUserID",
 			data : userId,
 			contentType : "application/json; charset=UTF-8",
 			success : function(result) {
@@ -85,7 +85,7 @@ function fn_signUp() {
 	if (flag == 0) {
 		alert("아이디 중복체크를 해주세요.");
 	} else {
-		$("#write").attr("action", path+"/user/insert");
+		$("#write").attr("action", path+"/userInsert");
 		$("#write").submit();
 	}
 }

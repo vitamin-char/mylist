@@ -34,6 +34,7 @@
         </interceptor>
         <interceptor>
             <mapping path="/board/*"/>
+            <mapping path="/user/*"/>
             <beans:ref bean="ConfirmInterceptor"/>
         </interceptor>
     </interceptors>

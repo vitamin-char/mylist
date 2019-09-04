@@ -30,7 +30,7 @@
 			<%if(login == null){ %>
 				<ul class="sign">
 					<li><a href="${path}/login">로그인</a></li>
-					<li><a href="${path}/user/write">회원가입</a></li>
+					<li><a href="${path}/join">회원가입</a></li>
 				</ul>
 			<%}else{ %>
 				<ul class="sign">

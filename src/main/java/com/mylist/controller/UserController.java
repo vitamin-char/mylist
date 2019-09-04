@@ -32,19 +32,19 @@ public class UserController {
 	BoardService boardService;
 	
 	//회원가입
-	@RequestMapping(value = "/user/write")
+	@RequestMapping(value = "/join")
 	public String userWrite() {
 		return "user/joinForm";
 	}
 	
-	@RequestMapping(value = "/user/insert")
+	@RequestMapping(value = "/userInsert")
 	public String insert(@ModelAttribute UserVO vo) throws Exception{
 		userService.insertUser(vo);
 		return "redirect:/login";
 	}
 	
 	//아이디 중복체크
-	@RequestMapping(value = "/user/checkUserID")
+	@RequestMapping(value = "/checkUserID")
 	@ResponseBody 
 	public int idcheck(@RequestBody String userId) throws Exception {
 		int check = userService.selectUserId(userId);

@@ -28,7 +28,7 @@
 	</form>
 	
 	<div id="join_section">
-		회원이 아니신가요? <a class="join" href="${path}/user/write">회원가입</a>
+		회원이 아니신가요? <a class="join" href="${path}/join">회원가입</a>
 	</div>
 	
 	<div id="warning">
