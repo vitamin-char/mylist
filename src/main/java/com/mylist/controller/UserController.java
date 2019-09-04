@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.util.WebUtils;
 
 import com.mylist.service.BoardService;
 import com.mylist.service.UserService;
@@ -53,7 +57,8 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/loginCheck")
-	public ModelAndView loginCheck(@ModelAttribute UserVO vo, HttpSession session) throws Exception {
+	public ModelAndView loginCheck(@ModelAttribute UserVO vo, HttpSession session, 
+			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		UserVO user = userService.login(vo);
 		if(user == null) {
@@ -61,7 +66,14 @@ public class UserController {
 			mav.setViewName("/login");
 		}else {
 			vo = userService.getUser(vo.getUserId());
-			session.setAttribute("login", vo); 
+			session.setAttribute("login", vo);
+			
+			Cookie cookie = new Cookie("loginCookie", vo.getUserId());
+            cookie.setPath("/");
+            int amount = 60 * 60 * 24 * 7; //7일 동안 쿠키 유지
+            cookie.setMaxAge(amount);
+            response.addCookie(cookie);
+
 			mav.setViewName("redirect:/");
 		}
          
@@ -69,8 +81,14 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/logout")
-	public String logout(HttpSession session) {
+	public String logout(HttpSession session, HttpServletRequest request, HttpServletResponse response ) {
 		session.invalidate();
+		
+		Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
+        loginCookie.setPath("/");
+        loginCookie.setMaxAge(0);
+        response.addCookie(loginCookie);
+        
 		return "redirect:/";
 	}
 	
