@@ -7,10 +7,9 @@
     margin-right: auto;
 }
 .upload_btn_wrap{
-    position: absolute;
+    position: fixed;
     right: 24px;
     bottom: 30px;
-    display: flex;
 }
 .add_img{
     width:56px;
