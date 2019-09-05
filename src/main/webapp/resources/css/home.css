@@ -20,7 +20,7 @@
     float: left;
     background-color: #FFFFFF;
 	width: 256px;
-	height: 340px;
+	height: 290px;
 	margin: 20px 15px;;
 	padding: 7px 0;
 	border-radius: 6px;
@@ -72,7 +72,13 @@
     font-weight: 400;
     color: #454545;
     letter-spacing: -0.5px;
-    margin-left: 3px;
+}
+.date_wrap{
+	font-size: 12px;
+    font-weight: 400;
+    color: #505050;
+    letter-spacing: -0.5px;
+    margin-top: 5px;
 }
 #modal {
 	display: none;

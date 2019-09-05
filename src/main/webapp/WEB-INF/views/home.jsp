@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file = "header.jsp" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -50,9 +51,11 @@
                 <div class="user_wrap">
                     <a class="name_wrap">${row.userId}</a>
                 </div>
-                
                 <div class="description_wrap">
                    ${row.description}
+                </div>
+                <div class="date_wrap">
+                <fmt:formatDate value="${row.board_date}" pattern="yyyy.MM.dd"/>
                 </div>
             </div>
         </div>
