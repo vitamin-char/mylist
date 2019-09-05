@@ -10,14 +10,15 @@
 <script>var login = "${user}";</script>
 <script src="<c:url value='/resources/js/jquery-3.4.1.min.js'/>"></script>
 <script src="<c:url value='/resources/js/likeAction.js'/>"></script>
+<script src="<c:url value='/resources/js/modal.js'/>"></script>
 <link href="<c:url value='/resources/css/home.css'/>" rel="stylesheet" type = "text/css">
 </head>
 <body>
 	<div class="content_wrap">
 	<c:forEach items="${list}" var="row" varStatus="status">
         <div class="list_wrap">
-            <a href="#" class="movoe_modal">
-            <c:forEach items="${row.music }" var="music">
+            <a onclick="modal_open('${row.boardId}')">
+            <c:forEach items="${row.music}" var="music">
             <div class="music_wrap">
                 <div class="title_wrap">
                     ${music.music_title }
@@ -62,5 +63,23 @@
            <img src="<c:url value='/resources/img/writeBtn.png'/>" class="add_img">
         </a>
     </div>
+    
+	<div id="modal">
+    <div class="modal_content">
+        <button type="button" id="modal_close_btn">
+        	<img src="<c:url value='/resources/img/x-mark.png'/>" class="close_btn">
+        </button>
+        <div class="modal_information_wrap">
+            <div class="user_wrap">
+                <a id="modal_name_wrap"></a>
+            </div>
+            <div id="modal_description_wrap">
+            </div>
+       </div>
+       <div id="music_content">
+       </div>
+    </div>
+    <div class="modal_layer"></div>
+	</div>
 </body>
 </html>

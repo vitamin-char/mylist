@@ -33,6 +33,13 @@ public class BoardController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/listView")
+	@ResponseBody
+	public BoardVO  listView(@RequestBody int boardId) throws Exception {
+		BoardVO board = boardService.listView(boardId);
+		return board;
+	}
+	
 	@RequestMapping(value = "/board/write")
 	public String boardWrite() {
 		return "board/boardWrite";

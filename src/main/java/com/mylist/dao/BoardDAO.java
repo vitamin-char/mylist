@@ -30,4 +30,6 @@ public interface BoardDAO {
 
 	List<BoardVO> likeList(String userId) throws Exception;
 
+	BoardVO listView(int boardId) throws Exception;
+
 }

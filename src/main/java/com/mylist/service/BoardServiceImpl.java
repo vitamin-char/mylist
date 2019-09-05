@@ -112,6 +112,11 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.likeList(userId);
 	}
 
+	@Override
+	public BoardVO listView(int boardId) throws Exception {
+		return boardDAO.listView(boardId);
+	}
+
 	
 
 

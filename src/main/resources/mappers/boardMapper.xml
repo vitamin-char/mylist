@@ -83,5 +83,10 @@
 		Join user_heart AS H
 		ON b.boardId = H.boardId
 		where H.userId = #{userId}
-	</select>		
+	</select>
+	
+	<select id = "listView" resultMap = "boradResult">
+		SELECT * FROM board
+		WHERE boardId = #{boardId}
+	</select>
 </mapper>
