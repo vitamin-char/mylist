@@ -47,7 +47,7 @@
                     </c:choose>
                     <span class="cnt_wrap" id="cnt_wrap_${status.index}">${row.board_cnt}</span>
                 </div>
-                <div class="user_wrpap">
+                <div class="user_wrap">
                     <a class="name_wrap">${row.userId}</a>
                 </div>
                 
