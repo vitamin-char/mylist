@@ -26,6 +26,26 @@
                     required="required" placeholder="가수">
                 </div>
             </div>
+            <div class="music_wrap" id="music_wrap">
+                <div class="name_wrap">
+                    <input type="text" name="music_title" id="music_title" class="musicInpt" 
+                    required="required" placeholder="제목">
+                </div>
+                <div class="singer_wrap">
+                    <input type="text" name="music_singer" id="music_singer" class="singerInpt" 
+                    required="required" placeholder="가수">
+                </div>
+            </div>
+            <div class="music_wrap" id="music_wrap">
+                <div class="name_wrap">
+                    <input type="text" name="music_title" id="music_title" class="musicInpt" 
+                    required="required" placeholder="제목">
+                </div>
+                <div class="singer_wrap">
+                    <input type="text" name="music_singer" id="music_singer" class="singerInpt" 
+                    required="required" placeholder="가수">
+                </div>
+            </div>
             
             <div id="field"></div> 
             
