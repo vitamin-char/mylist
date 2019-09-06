@@ -6,6 +6,7 @@ import java.util.List;
 public class BoardVO {
 	private int boardId;
 	private String userId;
+	private String userName;
 	private int board_cnt;
 	private String description;
 	private Date board_date;
@@ -23,6 +24,12 @@ public class BoardVO {
 	}
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public int getBoard_cnt() {
 		return board_cnt;
@@ -55,6 +62,5 @@ public class BoardVO {
 	public void setLike_plag(int like_plag) {
 		this.like_plag = like_plag;
 	}
-
 
 }

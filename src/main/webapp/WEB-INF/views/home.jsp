@@ -49,7 +49,7 @@
                     <span class="cnt_wrap" id="cnt_wrap_${status.index}">${row.board_cnt}</span>
                 </div>
                 <div class="user_wrap">
-                    <a class="name_wrap">${row.userId}</a>
+                    <a class="name_wrap">${row.userName}</a>
                 </div>
                 <div class="description_wrap">
                    ${row.description}

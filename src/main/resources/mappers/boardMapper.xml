@@ -5,6 +5,7 @@
 	<resultMap id="boradResult" type="com.mylist.vo.BoardVO">
 	    <result property="boardId" column="boardId"/>
 	    <result property="userId" column="userId"/>
+	    <result property="userName" column="userName"/>
 	    <result property="discription" column="discription"/>
 	    <result property="board_cnt" column="board_cnt"/>
 	    <result property="board_date" column="board_date"/>
@@ -13,7 +14,9 @@
 	</resultMap>
 	
 	<select id = "boardList" resultMap = "boradResult">
-		SELECT * FROM board
+		SELECT u.userName, b.* FROM board AS b
+		JOIN user AS u
+		ON b.userId = u.userId
 	</select>
 	
 	<select id = "musicList" resultType = "com.mylist.vo.MusicVO">
@@ -69,24 +72,30 @@
 	</update>
 	
 	<select id="selectCnt" parameterType="String" resultType="Integer">
-      SELECT board_cnt FROM board
-      WHERE boardId = #{boardId}
+      	SELECT board_cnt FROM board
+      	WHERE boardId = #{boardId}
 	</select>
 	
 	<select id = "writeList" resultMap = "boradResult">
-		SELECT * FROM board
-		Where userId = #{userId}
+		SELECT u.userName, b.* FROM board AS b
+		JOIN user AS u
+		ON b.userId = u.userId
+		Where b.userId = #{userId}
 	</select>
 	
 	<select id = "likeList" resultMap = "boradResult">
-		select * from board AS b
+		select u.userName, b.* FROM board AS b
+		JOIN user AS u
+		ON b.userId = u.userId
 		Join user_heart AS H
 		ON b.boardId = H.boardId
 		where H.userId = #{userId}
 	</select>
 	
 	<select id = "listView" resultMap = "boradResult">
-		SELECT * FROM board
-		WHERE boardId = #{boardId}
+		SELECT u.userName, b.* FROM board AS b
+		JOIN user AS u
+		ON b.userId = u.userId
+		WHERE b.boardId = #{boardId}
 	</select>
 </mapper>
