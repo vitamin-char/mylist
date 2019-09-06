@@ -3,6 +3,7 @@
     padding: 15px 77px;
     margin-top: 20px;
     color: white;
+    max-width: 1130px;
 }
 .profile_cover{
     position: relative;
@@ -45,4 +46,7 @@
     font-weight: 600;
     cursor: pointer;
     outline: none;
+}
+#userPage_content_wrap{
+	padding:0;
 }

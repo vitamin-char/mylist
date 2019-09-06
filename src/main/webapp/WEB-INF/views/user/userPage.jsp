@@ -39,7 +39,7 @@
         </div>
         </div>
     </div>
-    <div class="content_wrap">
+    <div class="content_wrap" id="userPage_content_wrap">
 	<c:forEach items="${list}" var="row" varStatus="status">
         <div class="list_wrap">
             <a onclick="modal_open('${row.boardId}')">
