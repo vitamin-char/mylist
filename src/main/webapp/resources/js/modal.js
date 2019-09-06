@@ -6,6 +6,7 @@ function modal_open(boardId){
 		data : boardId,
 		contentType : "application/json; charset=UTF-8",
 		success : function(board) {
+			$("#modal_name_wrap").attr("href", path+"/userPage?userId="+board.userId);
 			document.getElementById("modal_name_wrap").innerHTML = board.userName;
 			document.getElementById("modal_description_wrap").innerHTML = board.description;
 			

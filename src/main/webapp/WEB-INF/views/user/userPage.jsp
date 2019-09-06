@@ -73,7 +73,7 @@
                     <span class="cnt_wrap" id="cnt_wrap_${status.index}">${row.board_cnt}</span>
                 </div>
                 <div class="user_wrpap">
-                    <a class="name_wrap">${row.userName}</a>
+                    <a href="${path}/userPage?userId=${row.userId}" class="name_wrap">${row.userName}</a>
                 </div>
                 
                 <div class="description_wrap">
