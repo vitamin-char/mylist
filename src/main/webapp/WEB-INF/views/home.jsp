@@ -48,6 +48,25 @@
                     </c:choose>
                     <span class="cnt_wrap" id="cnt_wrap_${status.index}">${row.board_cnt}</span>
                 </div>
+                <c:if test="${login.userId eq row.userId}">
+                <div class="option_wrap">
+                	<a class="option_menu_btn">
+                		<img src="<c:url value='/resources/img/option.png'/>" id="option_img">
+                	</a>
+                	<ul>
+                		<li>
+                			<a href="${path}/board/edit?boardId=${row.boardId}">
+                			<img src="<c:url value='/resources/img/edit.png'/>" id="edit_img">수정
+                			</a>
+                		</li>
+                		<li>
+                			<a href="${path}/board/delete?boardId=${row.boardId}">
+                			<img src="<c:url value='/resources/img/delete.png'/>" id="delete_img">삭제
+                			</a>
+                		</li>
+                	</ul>
+                </div>
+                </c:if>
                 <div class="user_wrap">
                     <a href="${path}/userPage?userId=${row.userId}" class="name_wrap">${row.userName}</a>
                 </div>

@@ -77,4 +77,19 @@ public class BoardDAOImpl implements BoardDAO {
 		return sqlSession.selectOne("board.listView", boardId);
 	}
 
+	@Override
+	public void boardUpdate(BoardVO board) throws Exception {
+		sqlSession.update("board.boardUpdate", board);
+	}
+
+	@Override
+	public void tagDelete(int boardId) throws Exception {
+		sqlSession.delete("board.tagDelete", boardId);
+	}
+
+	@Override
+	public void musicDelete(int boardId) throws Exception {
+		sqlSession.delete("board.musicDelete", boardId);
+	}
+
 }

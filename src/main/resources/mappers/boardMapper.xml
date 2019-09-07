@@ -98,4 +98,21 @@
 		ON b.userId = u.userId
 		WHERE b.boardId = #{boardId}
 	</select>
+	
+	<update id="boardUpdate">
+		UPDATE board
+        SET
+        description = #{description}
+        WHERE boardId = #{boardId}
+	</update>
+	
+	<delete id="tagDelete">
+		DELETE FROM board_tag
+		WHERE boardId = #{boardId}
+	</delete>
+	
+	<delete id="musicDelete">
+		DELETE FROM music
+		WHERE boardId = #{boardId}
+	</delete>
 </mapper>

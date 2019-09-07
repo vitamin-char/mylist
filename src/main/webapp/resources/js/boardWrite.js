@@ -1,9 +1,13 @@
 function add_item() {
 	var div = document.createElement('div');
 	div.className = "music_wrap";
-	var str = document.getElementById('music_wrap').innerHTML;
-	
-	
+	var str = '<div class="name_wrap">' + 	
+	'<input type="text" name="music_title" class="musicInpt" required="required" placeholder="제목">' +
+	'</div>' + 
+	'<div class="singer_wrap">' +
+	'<input type="text" name="music_singer" class="singerInpt" required="required" placeholder="가수">' +
+	'</div>';
+		
 	str += '<div class="del_music"> <button class="del_btn" type="button" onclick="remove_item(this)">' + 
 	'<img src="../resources/img/x-mark.png" class="del_img"> </button> </div>';
 	div.innerHTML = str;
@@ -12,7 +16,7 @@ function add_item() {
 }
 
 function remove_item(obj) {
-	document.getElementById('field').removeChild(obj.parentNode.parentNode);
+	$(obj).parent().parent().remove();
 }
 
 function replace_name(){

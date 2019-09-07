@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -70,4 +71,19 @@ public class BoardController {
 		return check;
 	}
 	
+	@RequestMapping(value = "/board/edit")
+	public ModelAndView boardEdit(@RequestParam int boardId) throws Exception {
+		ModelAndView mav = new ModelAndView("/board/edit");
+
+		BoardVO board = boardService.listView(boardId);
+		
+		mav.addObject("board",board);
+		return mav;
+	}
+	@RequestMapping(value = "/board/update")
+	public String boardUpdate(@ModelAttribute BoardVO board) throws Exception {
+		boardService.boardUpdate(board);
+
+		return "redirect:/";
+	}
 }

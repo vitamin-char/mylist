@@ -22,4 +22,6 @@ public interface BoardService {
 
 	BoardVO listView(int boardId) throws Exception;
 
+	void boardUpdate(BoardVO board) throws Exception;
+
 }

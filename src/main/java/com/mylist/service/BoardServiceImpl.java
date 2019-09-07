@@ -156,4 +156,33 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.listView(boardId);
 	}
 
+	@Override
+	public void boardUpdate(BoardVO board) throws Exception {
+		boardDAO.boardUpdate(board);
+		
+		Map<String,Object> map;
+		
+		boardDAO.tagDelete(board.getBoardId());
+		boardDAO.musicDelete(board.getBoardId());
+		
+		//해시태그 구분
+		String str = board.getDescription();
+		String regExp = "\\#([0-9a-zA-Z가-힣]*)";
+		Pattern compiledPattern = Pattern.compile(regExp, Pattern.CASE_INSENSITIVE);
+		Matcher matcher = compiledPattern.matcher(str);
+		while (matcher.find()) {
+			map = new HashMap<String,Object>();
+			map.put("boardId", board.getBoardId());
+			map.put("tag_name", matcher.group());
+			boardDAO.tagInsert(map);
+		}
+		
+		
+		for(int i=0; i<board.getMusic().size(); i++) {	
+			board.getMusic().get(i).setBoardId(board.getBoardId());
+			boardDAO.musicInsert(board.getMusic().get(i));
+			
+		}
+	}
+
 }

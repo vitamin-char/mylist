@@ -32,4 +32,10 @@ public interface BoardDAO {
 
 	BoardVO listView(int boardId) throws Exception;
 
+	void boardUpdate(BoardVO board) throws Exception;
+
+	void tagDelete(int boardId) throws Exception;
+
+	void musicDelete(int boardId) throws Exception;
+
 }
