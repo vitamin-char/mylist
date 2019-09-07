@@ -185,4 +185,9 @@ public class BoardServiceImpl implements BoardService {
 		}
 	}
 
+	@Override
+	public void boardDelete(int boardId) throws Exception {
+		boardDAO.boardDelete(boardId); //DB 외래키 설정 시 제약 조건 추가함
+	}
+
 }

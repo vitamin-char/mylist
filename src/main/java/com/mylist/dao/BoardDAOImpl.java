@@ -92,4 +92,9 @@ public class BoardDAOImpl implements BoardDAO {
 		sqlSession.delete("board.musicDelete", boardId);
 	}
 
+	@Override
+	public void boardDelete(int boardId) throws Exception {
+		sqlSession.delete("board.boardDelete", boardId);
+	}
+
 }

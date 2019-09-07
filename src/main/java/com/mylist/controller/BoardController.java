@@ -86,4 +86,10 @@ public class BoardController {
 
 		return "redirect:/";
 	}
+	@RequestMapping(value = "/board/delete")
+	public String boardDelete(@RequestParam int boardId) throws Exception {
+		boardService.boardDelete(boardId);
+
+		return "redirect:/";
+	}
 }

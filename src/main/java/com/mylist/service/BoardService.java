@@ -24,4 +24,6 @@ public interface BoardService {
 
 	void boardUpdate(BoardVO board) throws Exception;
 
+	void boardDelete(int boardId) throws Exception;
+
 }

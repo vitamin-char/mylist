@@ -115,4 +115,9 @@
 		DELETE FROM music
 		WHERE boardId = #{boardId}
 	</delete>
+	
+	<delete id="boardDelete">
+		DELETE FROM board
+		WHERE boardId = #{boardId}
+	</delete>
 </mapper>

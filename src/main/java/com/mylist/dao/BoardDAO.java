@@ -38,4 +38,6 @@ public interface BoardDAO {
 
 	void musicDelete(int boardId) throws Exception;
 
+	void boardDelete(int boardId) throws Exception;
+
 }
