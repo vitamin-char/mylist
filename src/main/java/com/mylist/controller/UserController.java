@@ -100,10 +100,10 @@ public class UserController {
 		UserVO user = userService.getUser(userId);
 		mav.addObject("User",user);
 		
-		List<BoardVO> writeList = boardService.writeList(userId);
+		List<BoardVO> writeList = boardService.writeList(userId,session);
 		mav.addObject("write_cnt",writeList.size());
 		
-		List<BoardVO> likeList = boardService.likeList(userId);
+		List<BoardVO> likeList = boardService.likeList(userId,session);
 		mav.addObject("like_cnt",likeList.size());
 		
 		if(srt.equals("1")) {

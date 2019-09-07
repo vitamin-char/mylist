@@ -71,7 +71,6 @@ public class BoardServiceImpl implements BoardService {
 			
 		}
 	}
-
 	
 	@Override
 	public int like(String boardId, HttpSession session) throws Exception {
@@ -103,21 +102,58 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardVO> writeList(String userId) throws Exception {
-		return boardDAO.writeList(userId);
+	public List<BoardVO> writeList(String userId,HttpSession session) throws Exception {
+		UserVO user = (UserVO) session.getAttribute("login");
+		List<BoardVO> boardList = boardDAO.writeList(userId);
+		if(user == null) {
+			return boardList;
+		}
+		
+		BoardVO board;
+		Map<String,Object> map;
+		
+		for(int i=0; i<boardList.size(); i++) {
+			board = boardList.get(i);
+			
+			map = new HashMap<String,Object>();
+			map.put("userId", user.getUserId());
+			map.put("boardId", board.getBoardId());
+			
+			int plag= boardDAO.checkLike(map);
+			board.setLike_plag(plag);
+		}
+		
+		return boardList;
 	}
 
 	@Override
-	public List<BoardVO> likeList(String userId) throws Exception {
-		return boardDAO.likeList(userId);
+	public List<BoardVO> likeList(String userId,HttpSession session) throws Exception {
+		UserVO user = (UserVO) session.getAttribute("login");
+		List<BoardVO> boardList = boardDAO.likeList(userId);
+		if(user == null) {
+			return boardList;
+		}
+				
+		BoardVO board;
+		Map<String,Object> map;
+		
+		for(int i=0; i<boardList.size(); i++) {
+			board = boardList.get(i);
+			
+			map = new HashMap<String,Object>();
+			map.put("userId", user.getUserId());
+			map.put("boardId", board.getBoardId());
+			
+			int plag= boardDAO.checkLike(map);
+			board.setLike_plag(plag);
+		}
+		
+		return boardList;
 	}
 
 	@Override
 	public BoardVO listView(int boardId) throws Exception {
 		return boardDAO.listView(boardId);
 	}
-
-	
-
 
 }
