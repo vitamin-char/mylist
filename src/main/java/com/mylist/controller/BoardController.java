@@ -25,12 +25,13 @@ public class BoardController {
 	
 	//메인
 	@RequestMapping(value = "/")
-	public ModelAndView  home(HttpSession session) throws Exception {
+	public ModelAndView  home(@RequestParam(value="keyword", required=false) String keyword, HttpSession session) throws Exception {
 		ModelAndView mav = new ModelAndView("/home");
 
-		List<BoardVO> list = boardService.boardList(session);
+		List<BoardVO> list = boardService.boardList(keyword, session);
 		
 		mav.addObject("list",list);
+		mav.addObject("keyword",keyword);
 		return mav;
 	}
 	

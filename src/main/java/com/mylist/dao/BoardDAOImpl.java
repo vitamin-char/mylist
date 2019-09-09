@@ -17,7 +17,7 @@ public class BoardDAOImpl implements BoardDAO {
 	SqlSession sqlSession;
 
 	@Override
-	public List<BoardVO> boardList() throws Exception {
+	public List<BoardVO> boardList(String search) throws Exception {
 		return  sqlSession.selectList("board.boardList");
 	}
 	
@@ -95,6 +95,11 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public void boardDelete(int boardId) throws Exception {
 		sqlSession.delete("board.boardDelete", boardId);
+	}
+
+	@Override
+	public List<BoardVO> searchTag(String keyword) throws Exception {
+		return  sqlSession.selectList("board.searchTag",keyword);
 	}
 
 }

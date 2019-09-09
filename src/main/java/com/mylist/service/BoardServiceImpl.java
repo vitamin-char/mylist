@@ -21,13 +21,22 @@ public class BoardServiceImpl implements BoardService {
 	BoardDAO boardDAO;
 	
 	@Override
-	public List<BoardVO> boardList(HttpSession session) throws Exception {
+	public List<BoardVO> boardList(String keyword, HttpSession session) throws Exception {
 		UserVO user = (UserVO) session.getAttribute("login");
-		if(user == null) {
-			return boardDAO.boardList();
+		List<BoardVO> boardList = null;
+		
+		if(keyword == "" || keyword == null) {
+			boardList = boardDAO.boardList(keyword);
+		}
+		else if(keyword.charAt(0)=='#') {
+			boardList = boardDAO.searchTag(keyword);
 		}
 		
-		List<BoardVO> boardList = boardDAO.boardList();
+		
+		if(user == null) {
+			return boardList;
+		}
+		
 		BoardVO board;
 		Map<String,Object> map;
 		

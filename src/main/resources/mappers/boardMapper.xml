@@ -120,4 +120,13 @@
 		DELETE FROM board
 		WHERE boardId = #{boardId}
 	</delete>
+	
+	<select id = "searchTag" resultMap = "boradResult">
+		SELECT u.userName, b.* FROM board AS b
+		JOIN user AS u
+		ON b.userId = u.userId
+		Join board_tag AS t
+		ON b.boardId = t.boardId
+		where t.tag_name = #{keyword}
+	</select>
 </mapper>

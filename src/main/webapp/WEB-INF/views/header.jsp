@@ -20,9 +20,9 @@
 				<a href="${path}/" id="logo">MYLIST</a>
 			</h1>
 			<div class="search_wrap">
-				<form id="searchForm" name="search" class="search" action="${path}/search" method="post">
+				<form id="searchForm" name="search" class="search" action="${path}/" method="post">
 					<input type="text" name="keyword" id="keyword" class="keyword" 
-					required="required" placeholder="곡 제목, 가수, 태그를 검색하세요">
+					required="required" placeholder="곡 제목, 가수, 태그를 검색하세요" value="${keyword}">
 					<input type="submit" value="검색" id="btnSearch" class="submit">
 				</form>
 			</div>
