@@ -102,4 +102,9 @@ public class BoardDAOImpl implements BoardDAO {
 		return  sqlSession.selectList("board.searchTag",keyword);
 	}
 
+	@Override
+	public List<BoardVO> search(String keyword) throws Exception {
+		return  sqlSession.selectList("board.search",keyword);
+	}
+
 }

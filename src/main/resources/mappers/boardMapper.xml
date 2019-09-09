@@ -129,4 +129,13 @@
 		ON b.boardId = t.boardId
 		where t.tag_name = #{keyword}
 	</select>
+	
+	<select id = "search" resultMap = "boradResult">
+		SELECT u.userName, b.* FROM board AS b
+		JOIN user AS u
+		ON b.userId = u.userId
+		WHERE b.boardId IN (SELECT boardId FROM music 
+		where music_singer = #{keyword}
+        OR music_title = #{keyword});
+	</select>
 </mapper>

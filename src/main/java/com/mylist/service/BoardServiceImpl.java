@@ -31,7 +31,9 @@ public class BoardServiceImpl implements BoardService {
 		else if(keyword.charAt(0)=='#') {
 			boardList = boardDAO.searchTag(keyword);
 		}
-		
+		else {
+			boardList = boardDAO.search(keyword);
+		}
 		
 		if(user == null) {
 			return boardList;

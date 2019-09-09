@@ -42,4 +42,6 @@ public interface BoardDAO {
 
 	List<BoardVO> searchTag(String keyword) throws Exception;
 
+	List<BoardVO> search(String keyword) throws Exception;
+
 }
