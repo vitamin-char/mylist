@@ -28,7 +28,7 @@ public class BoardServiceImpl implements BoardService {
 		option.put("keyword", keyword);
 		option.put("order", order);
 		
-		if(keyword == "" || keyword == null) {
+		if(keyword.equals("") || keyword == null) {
 			boardList = boardDAO.boardList(option);
 		}
 		else if(keyword.charAt(0)=='#') {
