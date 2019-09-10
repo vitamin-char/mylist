@@ -8,7 +8,7 @@ import com.mylist.vo.MusicVO;
 
 public interface BoardDAO {
 	
-	List<BoardVO> boardList(String search) throws Exception;
+	List<BoardVO> boardList(Map<String, Object> option) throws Exception;
 
 	void boardInsert(BoardVO board) throws Exception;
 
@@ -40,8 +40,8 @@ public interface BoardDAO {
 
 	void boardDelete(int boardId) throws Exception;
 
-	List<BoardVO> searchTag(String keyword) throws Exception;
+	List<BoardVO> searchTag(Map<String, Object> option) throws Exception;
 
-	List<BoardVO> search(String keyword) throws Exception;
+	List<BoardVO> search(Map<String, Object> option) throws Exception;
 
 }

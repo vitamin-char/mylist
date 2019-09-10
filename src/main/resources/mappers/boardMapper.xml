@@ -17,6 +17,7 @@
 		SELECT u.userName, b.* FROM board AS b
 		JOIN user AS u
 		ON b.userId = u.userId
+		<include refid="option"></include>
 	</select>
 	
 	<select id = "musicList" resultType = "com.mylist.vo.MusicVO">
@@ -128,6 +129,7 @@
 		Join board_tag AS t
 		ON b.boardId = t.boardId
 		where t.tag_name = #{keyword}
+		<include refid="option"></include>
 	</select>
 	
 	<select id = "search" resultMap = "boradResult">
@@ -136,6 +138,18 @@
 		ON b.userId = u.userId
 		WHERE b.boardId IN (SELECT boardId FROM music 
 		where music_singer = #{keyword}
-        OR music_title = #{keyword});
+        OR music_title = #{keyword})
+        <include refid="option"></include>
 	</select>
+	
+	<sql id="option">
+		<choose>
+			<when test="order=='hot'">
+				ORDER BY board_cnt DESC
+			</when>
+			<otherwise>
+				ORDER BY board_date
+			</otherwise>
+		</choose>
+	</sql>
 </mapper>

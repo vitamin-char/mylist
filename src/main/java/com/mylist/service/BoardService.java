@@ -8,7 +8,7 @@ import com.mylist.vo.BoardVO;
 
 public interface BoardService {
 	
-	List<BoardVO> boardList(String keyword, HttpSession session) throws Exception;
+	List<BoardVO> boardList(String keyword, String order, HttpSession session) throws Exception;
 
 	void boardInsert(BoardVO board) throws Exception;
 	

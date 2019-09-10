@@ -11,17 +11,12 @@
 <script src="<c:url value='/resources/js/jquery-3.4.1.min.js'/>"></script>
 <script src="<c:url value='/resources/js/likeAction.js'/>"></script>
 <script src="<c:url value='/resources/js/modal.js'/>"></script>
-<script src="<c:url value='/resources/js/switch.js'/>"></script>
 <link href="<c:url value='/resources/css/home.css'/>" rel="stylesheet" type = "text/css">
 </head>
 <body>
 	<div class="switch-wrapper">
-		<form id="switchForm">		
-		  	<input id="switchCheckbox" type="checkbox">
-		  	<span class="switch-label">인기순</span>
-		  	<label for="switchCheckbox" class="switch"></label>
-		 	<span class="switch-label">최신순</span>
-	 	</form>
+		<a href="${path}/?order=new&keyword=${keyword}" class="switch-label">최신순</a>
+		<a href="${path}/?order=hot&keyword=${keyword}" class="switch-label">인기순</a>
 	 </div>
 	<%@ include file = "list.jsp" %>
 </body>

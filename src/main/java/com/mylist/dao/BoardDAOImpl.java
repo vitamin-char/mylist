@@ -17,8 +17,8 @@ public class BoardDAOImpl implements BoardDAO {
 	SqlSession sqlSession;
 
 	@Override
-	public List<BoardVO> boardList(String search) throws Exception {
-		return  sqlSession.selectList("board.boardList");
+	public List<BoardVO> boardList(Map<String, Object> option) throws Exception {
+		return  sqlSession.selectList("board.boardList",option);
 	}
 	
 	@Override
@@ -98,13 +98,13 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public List<BoardVO> searchTag(String keyword) throws Exception {
-		return  sqlSession.selectList("board.searchTag",keyword);
+	public List<BoardVO> searchTag(Map<String, Object> option) throws Exception {
+		return  sqlSession.selectList("board.searchTag",option);
 	}
 
 	@Override
-	public List<BoardVO> search(String keyword) throws Exception {
-		return  sqlSession.selectList("board.search",keyword);
+	public List<BoardVO> search(Map<String, Object> option) throws Exception {
+		return  sqlSession.selectList("board.search",option);
 	}
 
 }
