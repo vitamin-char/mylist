@@ -25,10 +25,9 @@ public class BoardController {
 	
 	//메인
 	@RequestMapping(value = "/")
-	public ModelAndView  home(@RequestParam(value="keyword", required=false) String keyword,
-			@RequestParam(value="order", defaultValue="best") String order, HttpSession session) throws Exception {
+	public ModelAndView  home(@RequestParam(value="keyword", defaultValue="") String keyword,
+			@RequestParam(value="order", defaultValue="new") String order, HttpSession session) throws Exception {
 		ModelAndView mav = new ModelAndView("/home");
-
 		List<BoardVO> list = boardService.boardList(keyword, order, session);
 		
 		mav.addObject("list",list);
