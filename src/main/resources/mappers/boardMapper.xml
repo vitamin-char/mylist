@@ -148,7 +148,7 @@
 				ORDER BY board_cnt DESC
 			</when>
 			<otherwise>
-				ORDER BY board_date
+				ORDER BY board_date DESC
 			</otherwise>
 		</choose>
 	</sql>
