@@ -124,6 +124,9 @@
     font-weight: 400;
     color: #454545;
     letter-spacing: -0.5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
 }
 .tagSearch{
 	color: #3399ff;
