@@ -17,11 +17,14 @@ function modal_open(boardId){
 				document.getElementById("music_content").innerHTML += "<div id='modal_music_wrap'>" + "<div id='modal_title_wrap'>"
 				+ music[i].music_title + "</div><div id='modal_singer_wrap'>" +  music[i].music_singer +  "</div></div>";
 			}
-			$("#modal").attr("style", "display:block");
+			
+			$("#modal").css("top", (($(window).height()-300)/2+$(window).scrollTop())+"px"); //스크롤 내려도 같은 위치
+			
+			$("#modal").css("display", "block");
 		}
 	});	
 }
 
 $(document).on('click', '#modal_close_btn', function(){
-    $("#modal").attr("style", "display:none");
+	$("#modal").css("display", "none");
 })
