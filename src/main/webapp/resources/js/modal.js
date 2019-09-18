@@ -28,3 +28,7 @@ function modal_open(boardId){
 $(document).on('click', '#modal_close_btn', function(){
 	$("#modal").css("display", "none");
 })
+
+$(document).on('click', '.modal_layer', function(){
+	$("#modal").css("display", "none");
+})
