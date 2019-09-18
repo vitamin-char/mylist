@@ -95,15 +95,17 @@ public class UserController {
 	@RequestMapping(value = "/userPage")
 	public ModelAndView userPage(@RequestParam String userId, 
 			@RequestParam(defaultValue="1") String srt, HttpSession session) throws Exception {
+		UserVO login = (UserVO) session.getAttribute("login");
+		
 		ModelAndView mav = new ModelAndView("/user/userPage");
 		
 		UserVO user = userService.getUser(userId);
 		mav.addObject("User",user);
 		
-		List<BoardVO> writeList = boardService.writeList(userId,session);
+		List<BoardVO> writeList = boardService.writeList(userId,login);
 		mav.addObject("write_cnt",writeList.size());
 		
-		List<BoardVO> likeList = boardService.likeList(userId,session);
+		List<BoardVO> likeList = boardService.likeList(userId,login);
 		mav.addObject("like_cnt",likeList.size());
 		
 		if(srt.equals("1")) {

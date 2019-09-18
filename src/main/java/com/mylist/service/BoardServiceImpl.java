@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 
@@ -22,8 +21,7 @@ public class BoardServiceImpl implements BoardService {
 	TagService tagService;
 	
 	@Override
-	public List<BoardVO> boardList(String keyword, String order, HttpSession session) throws Exception {
-		UserVO user = (UserVO) session.getAttribute("login");
+	public List<BoardVO> boardList(String keyword, String order, UserVO user) throws Exception {
 		List<BoardVO> boardList = null;
 		Map<String,Object> option = new HashMap<String,Object>();
 		option.put("keyword", keyword);
@@ -77,9 +75,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	@Override
-	public int like(String boardId, HttpSession session) throws Exception {
-		UserVO user = (UserVO) session.getAttribute("login");
-		
+	public int like(String boardId, UserVO user) throws Exception {		
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("userId", user.getUserId());
 		map.put("boardId", boardId);
@@ -91,9 +87,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int dislike(String boardId, HttpSession session) throws Exception {
-		UserVO user = (UserVO) session.getAttribute("login");
-		
+	public int dislike(String boardId, UserVO user) throws Exception {		
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("userId", user.getUserId());
 		map.put("boardId", boardId);
@@ -106,8 +100,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardVO> writeList(String userId,HttpSession session) throws Exception {
-		UserVO user = (UserVO) session.getAttribute("login");
+	public List<BoardVO> writeList(String userId, UserVO user) throws Exception {
 		List<BoardVO> boardList = boardDAO.writeList(userId);
 		if(user == null) {
 			return boardList;
@@ -131,8 +124,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardVO> likeList(String userId,HttpSession session) throws Exception {
-		UserVO user = (UserVO) session.getAttribute("login");
+	public List<BoardVO> likeList(String userId, UserVO user) throws Exception {
 		List<BoardVO> boardList = boardDAO.likeList(userId);
 		if(user == null) {
 			return boardList;
