@@ -22,9 +22,6 @@ ul,li{
     padding: 15px 0;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
 }
-.inner{
-    padding:0 60px;
-}
 .logo_wrap{
     float: left;
     height: 48px;
@@ -107,4 +104,40 @@ ul,li{
 }
 .sign li a{
 	color: #ff0083;
+}
+
+@media (min-width: 1170px){
+ 	.content_wrap, .switch-wrapper, .profile_wrap{
+    	width: 1152px;
+ 	}
+    .inner{
+    	padding:0 60px;
+	}
+}
+@media (min-width: 881px) and (max-width: 1169px){
+ 	.content_wrap, .switch-wrapper, .profile_wrap {
+    	width: 864px;
+ 	}
+ 	.inner{
+    	padding:0 60px;
+	}
+}
+@media (min-width: 594px) and (max-width: 880px){
+ 	.content_wrap, .switch-wrapper, .profile_wrap {
+    	width: 576px;
+ 	}
+ 	.inner{
+    	padding:0 30px;
+	}
+}
+@media (min-width: 290px) and (max-width: 593px){
+	#logo{
+		font-size: 26px
+	}
+ 	.content_wrap, .switch-wrapper, .profile_wrap {
+    	width: 288px;
+ 	}
+ 	.inner{
+    	padding:0 15px;
+	}
 }

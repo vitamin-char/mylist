@@ -4,7 +4,6 @@
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
-    width: 90%;
 }
 .switch-label{
     font-size: 17px;
@@ -17,7 +16,6 @@
     font-weight: bold;
 }
 .content_wrap{
-    width: 90%;
     margin-left: auto;
     margin-right: auto;
 }

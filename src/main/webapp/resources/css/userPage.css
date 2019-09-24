@@ -1,19 +1,16 @@
 @charset "UTF-8";
+
 .profile_wrap{
-    padding: 15px 77px;
-    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
     color: white;
-    max-width: 1130px;
 }
 .profile_cover{
     position: relative;
-    background: #ff0083;
     background: linear-gradient(to right, #ff0083, #fc6767); 
-    width: 90%;
-    height: 180px;
-    margin-left: auto;
-    margin-right: auto;
+    height: 150px;
     padding: 62px;
+    margin: 0 20px;
 }
 .setting_wrap{
     position: absolute;
@@ -49,4 +46,29 @@
 }
 #userPage_content_wrap{
 	padding:0;
+}
+
+@media (min-width: 290px) and (max-width: 880px){
+	.profile_cover {
+		padding: 12px 20px;
+		height: 100px;
+ 	}
+ 	.setting_wrap{
+ 		top: 12px;
+ 	}
+ 	.setting_img{
+    	width: 24px;
+    	height: 24px;
+	}
+ 	.user_name_wrap{
+		font-size: 20px;
+		margin-bottom: 18px;
+ 	}
+ 	.activity_label{
+    	font-size: 12px;
+ 	}
+ 	.count_btn{
+ 		font-size: 22px;
+    	padding: 0;
+ 	}
 }
