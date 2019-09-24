@@ -23,7 +23,7 @@ ul,li{
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
 }
 .inner{
-    padding:0 25px;
+    padding:0 60px;
 }
 .logo_wrap{
     float: left;
@@ -35,19 +35,36 @@ ul,li{
 	font-weight: 900;
 }
 .search_wrap{
-   	display: inline-block;
-	width: 550px;
     position: absolute;
     top: 15px;
     right: 0px;
     left: 0px;
     margin: 0px auto;
 }
+@media (min-width: 1024px){
+ .search_wrap {
+    width: 550px;
+ }
+}
+@media (min-width: 768px) and (max-width: 1023px){
+ .search_wrap {
+    width: 360px;
+ }
+}
+@media (max-width: 767px){
+ .search_wrap {
+    display: none;
+ }
+}
+#searchForm{
+    display: inline-block;
+    width: 100%;
+}
 #keyword{
 	float: left;
     padding-left: 12px;
     padding-right: 12px;
-    width: 80%;
+    width: 78%;
     height: 44px;
     border-color: #ff0083;
     border-style: solid;
@@ -64,7 +81,7 @@ ul,li{
     color: color: #454545;
 }
 #btnSearch{
-    width: 80px;
+    width: 13%;
     height: 48px;
     background-color: #ff0083;
     border: 0;
