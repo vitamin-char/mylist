@@ -18,35 +18,32 @@ ul,li{
 .inner_wrap{
     background-color: #fff;
     width: 100%;
-	height: 74px;
+	height: 48px;
+    padding: 15px 0;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
 }
 .inner{
-    margin: 0 20px;
+    padding:0 25px;
 }
 .logo_wrap{
     float: left;
-    display: flex;
-    height: 74px;
+    height: 48px;
 }
 #logo{
 	color: #ff0083;
     font-size: 30px;
 	font-weight: 900;
-	line-height: 32px;
-    height: 32px;
-    padding: 6px;
-    margin: 15px 0;
 }
 .search_wrap{
-   	position: absolute;
-	top: 13px;
-	left: 30%;
-	width: 600px;
-	overflow: auto;
+   	display: inline-block;
+	width: 550px;
+    position: absolute;
+    top: 15px;
+    right: 0px;
+    left: 0px;
+    margin: 0px auto;
 }
 #keyword{
-	display: inline-block;
 	float: left;
     padding-left: 12px;
     padding-right: 12px;
@@ -63,8 +60,10 @@ ul,li{
     line-height: normal;
     caret-color: #ff0083;
 	}
+#keyword::placeholder{
+    color: color: #454545;
+}
 #btnSearch{
-	display: inline-block;
     width: 80px;
     height: 48px;
     background-color: #ff0083;
@@ -83,17 +82,12 @@ ul,li{
     font-size: 15px;
     font-weight: 700;
     letter-spacing: -0.5px;
-    line-height: 20px;
 }
 .sign li{
-    display: flex;
     float: left;
     margin-left: 20px;
-    height: 74px;
+    padding:11px 0;
 }
 .sign li a{
 	color: #ff0083;
-    height: 20px;
-    padding: 6px;
-    margin: 20px 0px;
 }
